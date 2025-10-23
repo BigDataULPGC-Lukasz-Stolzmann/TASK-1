@@ -1,0 +1,33 @@
+# Build artifacts
+*.class
+__pycache__/
+*.pyc
+*.pyo
+target/
+simple_benchmark
+matrix_test
+
+# Data files (generated)
+data/input/*.json
+data/output/*.json
+data/results/*.txt
+data/results/*.csv
+
+# LaTeX build files
+*.aux
+*.log
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db

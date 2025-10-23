@@ -6,7 +6,7 @@
 set -e
 
 echo "=== Matrix Multiplication Benchmark Suite ==="
-echo "Running professional benchmarks for Python, Java, C++, and Rust"
+echo "Running benchmarks for Python, Java, C++, and Rust"
 echo ""
 
 # Get the script directory

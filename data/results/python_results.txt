@@ -1,0 +1,19 @@
+Python Matrix Multiplication Benchmark
+========================================
+
+Matrix size: 64x64
+  i-j-k: 0.0125s ± 0.0002s
+  i-k-j: 0.0126s ± 0.0003s
+  Speedup: 1.00x
+
+Matrix size: 128x128
+  i-j-k: 0.1013s ± 0.0033s
+  i-k-j: 0.0992s ± 0.0011s
+  Speedup: 1.02x
+
+Matrix size: 256x256
+  i-j-k: 0.8197s ± 0.0030s
+  i-k-j: 0.7907s ± 0.0077s
+  Speedup: 1.04x
+
+Data saved to ../../data/input/ and ../../data/output/

@@ -1,0 +1,17 @@
+Rust Matrix Multiplication Benchmark
+=====================================
+
+Matrix size: 64x64
+  i-j-k: 0.0000s ± 0.0000s
+  i-k-j: 0.0000s ± 0.0000s
+  Speedup: 1.01x
+
+Matrix size: 128x128
+  i-j-k: 0.0001s ± 0.0000s
+  i-k-j: 0.0001s ± 0.0000s
+  Speedup: 1.00x
+
+Matrix size: 256x256
+  i-j-k: 0.0019s ± 0.0001s
+  i-k-j: 0.0016s ± 0.0000s
+  Speedup: 1.14x

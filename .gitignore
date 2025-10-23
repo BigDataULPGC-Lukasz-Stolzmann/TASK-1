@@ -7,11 +7,11 @@ target/
 simple_benchmark
 matrix_test
 
-# Data files (generated)
+# Data files (generated - but keep benchmark results)
 data/input/*.json
 data/output/*.json
-data/results/*.txt
-data/results/*.csv
+# data/results/*.txt - Keep benchmark results for repository
+# data/results/*.csv - Keep benchmark results for repository
 
 # LaTeX build files
 *.aux

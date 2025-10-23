@@ -1,10 +1,10 @@
-# Matrix Multiplication Performance Benchmark Study
+# Matrix Multiplication Performance Benchmark
 
-A simple performance analysis of matrix multiplication algorithms across four programming languages: **Python**, **Java**, **C++**, and **Rust**.
+Performance analysis of matrix multiplication algorithms across four programming languages: **Python**, **Java**, **C++**, and **Rust**.
 
 ## Project Overview
 
-This project implements and benchmarks multiple matrix multiplication algorithms to analyze:
+Matrix multiplication algorithms implemented and benchmarked to analyze:
 - **Algorithmic performance differences** (loop ordering: i-j-k vs i-k-j)
 - **Programming language performance characteristics**
 - **Cache optimization effectiveness**
@@ -49,16 +49,16 @@ LanguageBenchmarkMatMul/
 ### 2. Cache Optimization
 - **Blocked Matrix Multiplication**: Tiled approach for better cache locality
 
-## Simple Benchmarking Approach
+## Benchmarking Approach
 
-Each language uses simple, direct time measurements for reliability:
+Each language uses direct time measurements:
 
 | Language | Tool | Features |
 |----------|------|----------|
-| **Python** | `time.perf_counter()` | High-resolution timing, multiple runs |
-| **Java** | `System.nanoTime()` | Nanosecond precision, statistical analysis |
+| **Python** | `time.perf_counter()` | High-resolution timing |
+| **Java** | `System.nanoTime()` | Nanosecond precision |
 | **C++** | `std::chrono::high_resolution_clock` | Standard library timing |
-| **Rust** | `std::time::Instant` | Built-in high-precision timing |
+| **Rust** | `std::time::Instant` | High-precision timing |
 
 ## Quick Start
 
@@ -104,7 +104,7 @@ cargo run --release
 
 ## Running Tests
 
-Each language includes correctness tests:
+Correctness tests available for each language:
 
 ```bash
 # Python
@@ -122,7 +122,7 @@ cd code/rust/mat_mul && cargo test
 
 ## Performance Analysis
 
-The benchmark results include:
+Benchmark results include:
 - **Execution time measurements** with statistical analysis
 - **Algorithm comparison** (i-j-k vs i-k-j)
 - **Scalability trends** across matrix sizes (64x64, 128x128, 256x256)
@@ -134,17 +134,18 @@ The benchmark results include:
 
 ## Data Output
 
-The benchmarks generate:
+Benchmarks generate:
 - **Input matrices**: JSON files in `data/input/`
 - **Result matrices**: JSON files in `data/output/`
 - **Benchmark results**: CSV files and text outputs in `data/results/`
 
 ## Research Paper
 
-Complete analysis documented in LaTeX:
+Analysis documented in LaTeX:
 - **Location**: `paper/matrix_multiplication_benchmark.tex`
-- **Compilation**: Use any LaTeX distribution (TeXLive, MiKTeX)
+- **Compilation**: Requires LaTeX distribution (TeXLive, MiKTeX, or `brew install --cask mactex`)
 - **Results**: Real benchmark data included
+- **PDF Generation**: `cd paper && pdflatex matrix_multiplication_benchmark.tex`
 
 ## Configuration
 
@@ -161,13 +162,13 @@ Each implementation includes:
 
 ## Code Quality
 
-### Best Practices Implemented
+### Implementation Features
 - **Separation of concerns**: Production code, tests, and benchmarks separated
 - **Reproducible results**: Fixed random seeds for consistent matrix generation
-- **Simple build systems**: Makefile, javac, cargo
+- **Build systems**: Makefile, javac, cargo
 - **Statistical analysis**: Multiple runs with mean and standard deviation
 
-### Expected Results Pattern
+### Results Pattern
 - **C++/Rust**: Fastest due to native compilation and optimization
 - **Java**: Good performance after JIT warmup
 - **Python**: Slower due to interpretation overhead
@@ -186,8 +187,8 @@ This project is licensed under the MIT License.
 
 ## Authors
 
-Research conducted as part of programming language performance analysis coursework.
+Matrix multiplication performance analysis by Lukasz Stolzmann.
 
 ---
 
-**Note**: This benchmark uses simple timing methods for educational purposes. For production applications, consider specialized libraries like Intel MKL, OpenBLAS, or CUDA.
+**Note**: This benchmark uses timing methods for educational purposes. For production applications, consider specialized libraries like Intel MKL, OpenBLAS, or CUDA.

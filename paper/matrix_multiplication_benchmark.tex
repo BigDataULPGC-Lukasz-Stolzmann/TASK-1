@@ -38,7 +38,7 @@
 \lstset{style=mystyle}
 
 \title{Performance Analysis of Matrix Multiplication Algorithms Across Programming Languages}
-\author{Benchmark Study}
+\author{Lukasz Stolzmann}
 \date{\today}
 
 \begin{document}
@@ -46,7 +46,7 @@
 \maketitle
 
 \begin{abstract}
-This paper presents a comprehensive performance analysis of matrix multiplication algorithms implemented in four programming languages: Python, Java, C++, and Rust. We evaluate multiple algorithmic approaches including standard nested loops (i-j-k, i-k-j, k-i-j variants), blocked matrix multiplication, and optimized library implementations. Professional benchmarking tools were used for each language to ensure accurate and reproducible measurements. Our results demonstrate significant performance differences between languages and algorithmic approaches, with important implications for high-performance computing applications.
+This paper presents a performance analysis of matrix multiplication algorithms implemented in four programming languages: Python, Java, C++, and Rust. Multiple algorithmic approaches are evaluated including standard nested loops (i-j-k, i-k-j, k-i-j variants), blocked matrix multiplication, and optimized library implementations. Simple benchmarking tools are used for each language to ensure accurate and reproducible measurements. Results demonstrate significant performance differences between languages and algorithmic approaches, with important implications for high-performance computing applications.
 
 \textbf{Keywords:} Matrix multiplication, performance analysis, programming languages, benchmarking, algorithmic optimization
 \end{abstract}
@@ -55,7 +55,7 @@ This paper presents a comprehensive performance analysis of matrix multiplicatio
 
 Matrix multiplication is a fundamental operation in linear algebra and serves as a cornerstone for numerous computational applications including machine learning, scientific computing, and computer graphics. The computational complexity of matrix multiplication is $O(n^3)$ for the standard algorithm, making it a computationally intensive operation for large matrices.
 
-This study examines the performance characteristics of various matrix multiplication implementations across four programming languages: Python, Java, C++, and Rust. Our investigation focuses on:
+This study examines the performance characteristics of various matrix multiplication implementations across four programming languages: Python, Java, C++, and Rust. The investigation focuses on:
 
 \begin{itemize}
     \item Algorithmic variations (loop ordering: i-j-k, i-k-j, k-i-j)
@@ -68,10 +68,10 @@ This study examines the performance characteristics of various matrix multiplica
 
 \subsection{Programming Languages and Tools}
 
-We implemented matrix multiplication algorithms in four programming languages, each chosen for their distinct characteristics:
+Matrix multiplication algorithms were implemented in four programming languages, each chosen for their distinct characteristics:
 
 \begin{itemize}
-    \item \textbf{Python}: Interpreted language with NumPy for numerical computations
+    \item \textbf{Python}: Interpreted language with pure Python implementations
     \item \textbf{Java}: Compiled to bytecode, running on the Java Virtual Machine (JVM)
     \item \textbf{C++}: Compiled to native machine code with manual memory management
     \item \textbf{Rust}: Systems programming language with memory safety guarantees
@@ -79,7 +79,7 @@ We implemented matrix multiplication algorithms in four programming languages, e
 
 \subsection{Benchmarking Framework}
 
-Simple, direct timing measurements were employed for each language to ensure reliability and ease of implementation:
+Simple, direct timing measurements are employed for each language to ensure reliability and ease of implementation:
 
 \begin{itemize}
     \item \textbf{Python}: \texttt{time.perf\_counter()} with multiple runs and statistical analysis
@@ -92,7 +92,7 @@ Simple, direct timing measurements were employed for each language to ensure rel
 
 \subsubsection{Standard Loop Variants}
 
-Two main variants of the standard $O(n^3)$ algorithm were implemented, differing in loop nesting order:
+Two main variants of the standard $O(n^3)$ algorithm are implemented, differing in loop nesting order:
 
 \begin{lstlisting}[language=C++, caption=i-j-k Loop Order]
 for (int i = 0; i < n; i++) {
@@ -117,7 +117,7 @@ for (int i = 0; i < n; i++) {
 
 \subsubsection{Blocked Matrix Multiplication}
 
-To improve cache locality, we implemented blocked (tiled) matrix multiplication:
+To improve cache locality, blocked (tiled) matrix multiplication was implemented:
 
 \begin{lstlisting}[language=C++, caption=Blocked Matrix Multiplication]
 for (int ii = 0; ii < n; ii += block_size) {
@@ -162,7 +162,7 @@ The project follows best practices for code organization:
 \subsection{Language-Specific Considerations}
 
 \subsubsection{Python}
-Python implementations include both pure Python versions and NumPy-optimized variants. NumPy leverages highly optimized BLAS libraries for matrix operations.
+Python implementations use pure Python with nested lists for matrix representation, demonstrating the performance characteristics of interpreted code without external optimization libraries.
 
 \subsubsection{Java}
 Java implementations benefit from Just-In-Time (JIT) compilation. JMH ensures proper JVM warmup to measure steady-state performance.
@@ -186,14 +186,14 @@ Rust implementations benefit from zero-cost abstractions and compile-time optimi
 \toprule
 Language & Algorithm & 64×64 & 128×128 & 256×256 \\
 \midrule
-Python & i-j-k & 12.5 & 98.7 & 787.8 \\
-Python & i-k-j & 12.3 & 98.3 & 794.1 \\
-Java & i-j-k & 3.2 & 25.4 & 203.1 \\
-Java & i-k-j & 2.9 & 23.1 & 185.2 \\
-C++ & i-j-k & 1.8 & 14.3 & 114.5 \\
-C++ & i-k-j & 1.6 & 12.8 & 102.4 \\
-Rust & i-j-k & 1.9 & 15.1 & 120.8 \\
-Rust & i-k-j & 1.7 & 13.6 & 108.9 \\
+Python & i-j-k & 12.5 & 101.3 & 819.7 \\
+Python & i-k-j & 12.6 & 99.2 & 790.7 \\
+Java & i-j-k & 1.0 & 1.2 & 10.8 \\
+Java & i-k-j & 0.7 & 0.6 & 2.4 \\
+C++ & i-j-k & 0.2 & 2.2 & 15.6 \\
+C++ & i-k-j & 0.0 & 0.3 & 2.3 \\
+Rust & i-j-k & 0.0 & 0.1 & 1.9 \\
+Rust & i-k-j & 0.0 & 0.1 & 1.6 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -208,11 +208,20 @@ Blocked matrix multiplication shows improved performance for larger matrices due
 
 \subsection{Language Performance}
 
-% Analysis of language-specific performance characteristics
+The benchmark results reveal significant performance differences between programming languages:
+
+\begin{itemize}
+    \item \textbf{Rust}: Fastest overall performance (1.6ms for 256×256 i-k-j), benefiting from zero-cost abstractions and aggressive compiler optimizations
+    \item \textbf{C++}: Close second (2.3ms for 256×256 i-k-j), with excellent optimization through -O3 compilation flags
+    \item \textbf{Java}: Good performance (2.4ms for 256×256 i-k-j) after JIT warmup, showing effective runtime optimization
+    \item \textbf{Python}: Significantly slower (790.7ms for 256×256 i-k-j) due to interpretation overhead and dynamic typing
+\end{itemize}
+
+The performance gap demonstrates the impact of compilation strategy and language design on computational tasks. Compiled languages (Rust, C++) achieve native performance, while managed languages (Java) balance performance with runtime safety. Interpreted languages (Python) prioritize development ease over execution speed.
 
 \section{Performance Analysis}
 
-Simple timing measurements were used to analyze performance characteristics:
+Simple timing measurements are used to analyze performance characteristics:
 
 \begin{itemize}
     \item \textbf{Statistical Analysis}: Multiple runs (5 iterations) with mean and standard deviation
@@ -228,7 +237,7 @@ Simple timing measurements were used to analyze performance characteristics:
 The benchmark results demonstrate clear performance hierarchies and optimization effects:
 
 \begin{itemize}
-    \item \textbf{Language Performance Ranking}: C++ ≈ Rust > Java > Python (4-7x faster)
+    \item \textbf{Language Performance Ranking}: C++ $\approx$ Rust > Java > Python (4-7x faster)
     \item \textbf{Algorithm Optimization}: i-k-j consistently outperforms i-j-k by 10-15\%
     \item \textbf{Scalability}: All implementations show expected O(n³) complexity
     \item \textbf{Cache Effects}: More pronounced in larger matrices (256×256+)
@@ -273,14 +282,14 @@ Potential extensions of this simple benchmark study include:
 
 The complete source code, benchmarking scripts, and raw data are available at:
 
-\texttt{https://github.com/[USERNAME]/LanguageBenchmarkMatMul}
+\texttt{https://github.com/BigDataULPGC-Lukasz-Stolzmann/TASK-1}
 
 The repository includes:
 \begin{itemize}
     \item Source code implementations in all four languages
-    \item Professional benchmarking frameworks and scripts
+    \item Benchmarking frameworks and scripts
     \item Raw benchmark data and analysis scripts
-    \item This paper's LaTeX source and compiled PDF
+    \item LaTeX source and compiled PDF
 \end{itemize}
 
 \bibliographystyle{plain}

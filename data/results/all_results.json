@@ -1,0 +1,188 @@
+{
+  "benchmark_metadata": {
+    "hardware": "Apple M3 Pro with 18GB unified memory",
+    "architecture": "ARM64",
+    "date": "2024-10-23",
+    "matrix_sizes": ["64x64", "128x128", "256x256"],
+    "algorithms": ["i-j-k", "i-k-j"],
+    "iterations_per_test": 5
+  },
+  "results": {
+    "python": {
+      "64x64": {
+        "i-j-k": {
+          "time_ms": 12.5,
+          "std_dev_ms": 0.2,
+          "speedup": 1.00
+        },
+        "i-k-j": {
+          "time_ms": 12.6,
+          "std_dev_ms": 0.3,
+          "speedup": 1.00
+        }
+      },
+      "128x128": {
+        "i-j-k": {
+          "time_ms": 101.3,
+          "std_dev_ms": 3.3,
+          "speedup": 1.00
+        },
+        "i-k-j": {
+          "time_ms": 99.2,
+          "std_dev_ms": 1.1,
+          "speedup": 1.02
+        }
+      },
+      "256x256": {
+        "i-j-k": {
+          "time_ms": 819.7,
+          "std_dev_ms": 3.0,
+          "speedup": 1.00
+        },
+        "i-k-j": {
+          "time_ms": 790.7,
+          "std_dev_ms": 7.7,
+          "speedup": 1.04
+        }
+      }
+    },
+    "java": {
+      "64x64": {
+        "i-j-k": {
+          "time_ms": 1.0,
+          "std_dev_ms": 0.4,
+          "speedup": 1.00
+        },
+        "i-k-j": {
+          "time_ms": 0.7,
+          "std_dev_ms": 0.4,
+          "speedup": 1.40
+        }
+      },
+      "128x128": {
+        "i-j-k": {
+          "time_ms": 1.2,
+          "std_dev_ms": 0.0,
+          "speedup": 1.00
+        },
+        "i-k-j": {
+          "time_ms": 0.6,
+          "std_dev_ms": 0.3,
+          "speedup": 1.88
+        }
+      },
+      "256x256": {
+        "i-j-k": {
+          "time_ms": 10.8,
+          "std_dev_ms": 0.1,
+          "speedup": 1.00
+        },
+        "i-k-j": {
+          "time_ms": 2.4,
+          "std_dev_ms": 0.0,
+          "speedup": 4.47
+        }
+      }
+    },
+    "cpp": {
+      "64x64": {
+        "i-j-k": {
+          "time_ms": 0.2,
+          "std_dev_ms": 0.0,
+          "speedup": 1.00
+        },
+        "i-k-j": {
+          "time_ms": 0.0,
+          "std_dev_ms": 0.0,
+          "speedup": 5.37
+        }
+      },
+      "128x128": {
+        "i-j-k": {
+          "time_ms": 2.2,
+          "std_dev_ms": 0.1,
+          "speedup": 1.00
+        },
+        "i-k-j": {
+          "time_ms": 0.3,
+          "std_dev_ms": 0.0,
+          "speedup": 6.83
+        }
+      },
+      "256x256": {
+        "i-j-k": {
+          "time_ms": 15.6,
+          "std_dev_ms": 1.4,
+          "speedup": 1.00
+        },
+        "i-k-j": {
+          "time_ms": 2.3,
+          "std_dev_ms": 0.0,
+          "speedup": 6.84
+        }
+      }
+    },
+    "rust": {
+      "64x64": {
+        "i-j-k": {
+          "time_ms": 0.0,
+          "std_dev_ms": 0.0,
+          "speedup": 1.00
+        },
+        "i-k-j": {
+          "time_ms": 0.0,
+          "std_dev_ms": 0.0,
+          "speedup": 1.01
+        }
+      },
+      "128x128": {
+        "i-j-k": {
+          "time_ms": 0.1,
+          "std_dev_ms": 0.0,
+          "speedup": 1.00
+        },
+        "i-k-j": {
+          "time_ms": 0.1,
+          "std_dev_ms": 0.0,
+          "speedup": 1.00
+        }
+      },
+      "256x256": {
+        "i-j-k": {
+          "time_ms": 1.9,
+          "std_dev_ms": 0.1,
+          "speedup": 1.00
+        },
+        "i-k-j": {
+          "time_ms": 1.6,
+          "std_dev_ms": 0.0,
+          "speedup": 1.14
+        }
+      }
+    }
+  },
+  "summary": {
+    "fastest_overall": {
+      "language": "Rust",
+      "algorithm": "i-k-j",
+      "time_256x256_ms": 1.6
+    },
+    "slowest_overall": {
+      "language": "Python",
+      "algorithm": "i-j-k",
+      "time_256x256_ms": 819.7
+    },
+    "best_speedup": {
+      "language": "C++",
+      "algorithm": "i-k-j",
+      "matrix_size": "256x256",
+      "speedup": 6.84
+    },
+    "language_ranking_256x256": [
+      {"rank": 1, "language": "Rust", "time_ms": 1.6},
+      {"rank": 2, "language": "C++", "time_ms": 2.3},
+      {"rank": 3, "language": "Java", "time_ms": 2.4},
+      {"rank": 4, "language": "Python", "time_ms": 790.7}
+    ]
+  }
+}

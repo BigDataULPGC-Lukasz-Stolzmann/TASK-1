@@ -1,0 +1,17 @@
+Java Matrix Multiplication Benchmark
+=====================================
+
+Matrix size: 64x64
+  i-j-k: 0,0010s ± 0,0004s
+  i-k-j: 0,0007s ± 0,0004s
+  Speedup: 1,40x
+
+Matrix size: 128x128
+  i-j-k: 0,0012s ± 0,0000s
+  i-k-j: 0,0006s ± 0,0003s
+  Speedup: 1,88x
+
+Matrix size: 256x256
+  i-j-k: 0,0108s ± 0,0001s
+  i-k-j: 0,0024s ± 0,0000s
+  Speedup: 4,47x

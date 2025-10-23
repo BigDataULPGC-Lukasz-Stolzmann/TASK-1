@@ -1,0 +1,4 @@
+Matrix_Size,Python_ijk,Python_ikj,Java_ijk,Java_ikj,Cpp_ijk,Cpp_ikj,Rust_ijk,Rust_ikj
+64x64,12.5,12.6,1.0,0.7,0.2,0.0,0.0,0.0
+128x128,101.3,99.2,1.2,0.6,2.2,0.3,0.1,0.1
+256x256,819.7,790.7,10.8,2.4,15.6,2.3,1.9,1.6

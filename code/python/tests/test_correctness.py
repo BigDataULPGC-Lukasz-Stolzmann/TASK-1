@@ -84,20 +84,20 @@ class TestMatrixMultiplicationCorrectness:
         assert matrices_equal(result_ijk, result_blocked), "i-j-k and blocked should produce same result"
 
     def test_numpy_consistency(self, test_matrices_numpy_small):
-        """Test that our implementations match NumPy."""
+        """Test that implementations match NumPy."""
         A_np, B_np = test_matrices_numpy_small
 
-        # Convert to list format for our algorithms
+        # Convert to list format for algorithms
         A = A_np.tolist()
         B = B_np.tolist()
 
-        # Compute with our algorithm and NumPy
-        our_result = matmul_ijk(A, B)
+        # Compute with algorithm and NumPy
+        result = matmul_ijk(A, B)
         numpy_result = matmul_numpy(A_np, B_np)
 
         # Compare results (allowing for small floating point differences)
-        our_result_np = np.array(our_result)
-        np.testing.assert_allclose(our_result_np, numpy_result, rtol=1e-10, atol=1e-12)
+        result_np = np.array(result)
+        np.testing.assert_allclose(result_np, numpy_result, rtol=1e-10, atol=1e-12)
 
     def test_associativity(self):
         """Test matrix multiplication associativity: (AB)C = A(BC)."""

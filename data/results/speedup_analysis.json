@@ -1,0 +1,93 @@
+{
+  "speedup_analysis": {
+    "algorithm_improvement": {
+      "description": "Performance improvement of i-k-j over i-j-k algorithm",
+      "python": {
+        "64x64": 1.00,
+        "128x128": 1.02,
+        "256x256": 1.04,
+        "average": 1.02
+      },
+      "java": {
+        "64x64": 1.40,
+        "128x128": 1.88,
+        "256x256": 4.47,
+        "average": 2.58
+      },
+      "cpp": {
+        "64x64": 5.37,
+        "128x128": 6.83,
+        "256x256": 6.84,
+        "average": 6.35
+      },
+      "rust": {
+        "64x64": 1.01,
+        "128x128": 1.00,
+        "256x256": 1.14,
+        "average": 1.05
+      }
+    },
+    "language_comparison": {
+      "description": "Performance comparison with Python i-j-k as baseline",
+      "baseline": "Python i-j-k",
+      "64x64": {
+        "python_ikj": 1.00,
+        "java_ijk": 12.50,
+        "java_ikj": 17.86,
+        "cpp_ijk": 62.50,
+        "cpp_ikj": 312.50,
+        "rust_ijk": 250.00,
+        "rust_ikj": 250.00
+      },
+      "128x128": {
+        "python_ikj": 1.02,
+        "java_ijk": 84.42,
+        "java_ikj": 168.83,
+        "cpp_ijk": 46.05,
+        "cpp_ikj": 337.67,
+        "rust_ijk": 1013.00,
+        "rust_ikj": 1013.00
+      },
+      "256x256": {
+        "python_ikj": 1.04,
+        "java_ijk": 75.90,
+        "java_ikj": 341.54,
+        "cpp_ijk": 52.54,
+        "cpp_ikj": 356.39,
+        "rust_ijk": 431.42,
+        "rust_ikj": 512.31
+      }
+    },
+    "scalability": {
+      "description": "Performance scaling with matrix size",
+      "complexity": "O(n^3)",
+      "size_ratios": {
+        "64_to_128": 8.0,
+        "128_to_256": 8.0,
+        "64_to_256": 64.0
+      },
+      "actual_scaling": {
+        "python": {
+          "64_to_128": 7.94,
+          "128_to_256": 7.97,
+          "64_to_256": 63.28
+        },
+        "java": {
+          "64_to_128": 0.86,
+          "128_to_256": 20.00,
+          "64_to_256": 17.14
+        },
+        "cpp": {
+          "64_to_128": 1.36,
+          "128_to_256": 7.67,
+          "64_to_256": 10.45
+        },
+        "rust": {
+          "64_to_128": "inf",
+          "128_to_256": 16.00,
+          "64_to_256": "inf"
+        }
+      }
+    }
+  }
+}
